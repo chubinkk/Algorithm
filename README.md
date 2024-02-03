@@ -1,3 +1,3 @@
 # Algorithm
 
-Studying algorithm with C &amp; JAVA &amp; python &amp; javascript
+Studying algorithm with C &amp; JAVA &amp; python &amp; javascript...

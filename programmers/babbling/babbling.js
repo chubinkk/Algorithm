@@ -27,16 +27,25 @@ babbling	result
 네 가지를 붙여 만들 수 있는 발음 이외에는 어떤 발음도 할 수 없는 것으로 규정합니다. 예를 들어 "woowo"는 "woo"는 발음할 수 있지만 "wo"를 발음할 수 없기 때문에 할 수 없는 발음입니다.
 */
 
-function solution(babbling) {
-    let list = ["aya", "ye", "woo", "ma"];
-    let answer = 0;
+// function solution(babbling) {
+//     let list = ["aya", "ye", "woo", "ma"];
+//     let answer = 0;
+
+//     let s_list = 
 
 
-    return answer;
-}
+//     return answer;
+// }
 
-let babbling = ["aya", "yee", "u", "maa", "wyeoo"];
-solution(babbling);
+const list = ["aya", "ye", "woo", "ma"];
+let answer = 0;
 
-babbling = ["ayaye", "uuuma", "ye", "yemawoo", "ayaa"];
-solution(babbling);
+let s_list = list.join();
+
+console.log(s_list);
+
+let babbling = ["aya", "yee", "u", "maa", "wyeoo"]; //1
+// solution(babbling);
+
+babbling = ["ayaye", "uuuma", "ye", "yemawoo", "ayaa"]; //3
+// solution(babbling);

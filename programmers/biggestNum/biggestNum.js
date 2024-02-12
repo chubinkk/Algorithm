@@ -15,22 +15,45 @@ numbers             return
 [6, 10, 2]          "6210"
 [3, 30, 34, 5, 9]	"9534330"
 */
+const reverseQuickSort = (arr) => {
+    if (arr.length <= 1) {
+        return arr;
+    }
+    let pivot = arr[0];
+    let left  = [];
+    let right = [];
 
-function quickSort () {
-    if (arr.length === 0) {
-        return ;
+    for (let i = 1; i<arr.length; i++) {
+        if (arr[i]<pivot)
+            right.push(arr[i]);
+        else
+            left.push(arr[i]);
     }
 
-    return 
+    return [...reverseQuickSort(left), pivot, ...reverseQuickSort(right)];
 }
 
 function solution(numbers) {
     var answer = '';
-    return answer;
+    var strNums = [];
+
+    for (let i=0; i<numbers.length; i++) {
+        strNums.push(numbers[i].toString());
+    }
+    
+    const sortedNums = reverseQuickSort(strNums);
+
+    console.log(sortedNums.join(''));
+
+    // return answer;
 }
 
 var nums = [6, 10, 2];
 var nums2 = [3, 30, 34, 5, 9];
 
+solution(nums);
+solution(nums2);
+
 //  출력
-//  console.log(solution());
+//  console.log(solution(nums));
+//  console.log(solution(nums2));

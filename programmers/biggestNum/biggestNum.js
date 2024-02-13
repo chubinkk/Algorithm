@@ -17,43 +17,41 @@ numbers             return
 */
 const reverseQuickSort = (arr) => {
     if (arr.length <= 1) {
-        return arr;
+      return arr;
     }
     let pivot = arr[0];
-    let left  = [];
+    let left = [];
     let right = [];
-
-    for (let i = 1; i<arr.length; i++) {
-        if (arr[i]<pivot)
-            right.push(arr[i]);
-        else
-            left.push(arr[i]);
+  
+    for (let i = 1; i < arr.length; i++) {
+      if (arr[i] < pivot) right.push(arr[i]);
+      else left.push(arr[i]);
     }
-
+  
     return [...reverseQuickSort(left), pivot, ...reverseQuickSort(right)];
-}
-
-function solution(numbers) {
-    var answer = '';
+  };
+  
+  function solution(numbers) {
+    // var answer = '';
     var strNums = [];
-
-    for (let i=0; i<numbers.length; i++) {
-        strNums.push(numbers[i].toString());
+  
+    for (let i = 0; i < numbers.length; i++) {
+      strNums.push(numbers[i].toString());
     }
-    
+  
     const sortedNums = reverseQuickSort(strNums);
-
-    console.log(sortedNums.join(''));
-
+  
+    console.log(sortedNums.join(""));
+  
     // return answer;
-}
-
-var nums = [6, 10, 2];
-var nums2 = [3, 30, 34, 5, 9];
-
-solution(nums);
-solution(nums2);
-
-//  출력
-//  console.log(solution(nums));
-//  console.log(solution(nums2));
+  }
+  
+  var nums = [6, 10, 2];
+  var nums2 = [3, 30, 34, 5, 9];
+  
+  solution(nums);
+  solution(nums2);
+  
+  //  출력
+  //  console.log(solution(nums));
+  //  console.log(solution(nums2));

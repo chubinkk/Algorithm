@@ -28,6 +28,5 @@ function solution(arr) {
 
 let array = [1, 4, 2, 3, 1, 4, 2, 3, 1, 2];
 
-
 //  출력
 console.log(solution(array));

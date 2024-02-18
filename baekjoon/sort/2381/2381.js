@@ -22,38 +22,32 @@ N(1 ≤ N ≤ 50,000)개의 점들이 있을 때, 최대 L1-metric 거리를 찾
 12
 */
 
-// const fs = require('fs');
-// const [n,input] = fs.readFileSync("/dev/stdin").toString.trim().split("\n");
-// const inputArr = input.trim().split(" ");
-
-
 // 입력 받기
-const fs = require("fs");
-let input = fs.readFileSync(__dirname + "/input.txt").toString();
-// const [n,input] = fs.readFileSync("/dev/stdin").toString.trim().split("\n");
-input = input.split("\n");
-const inputC = +input[0];
-const inputTestCase = [];
-
-for (let i = 1; i <= inputC; ++i) {
-    const arr = input[i].split(" ").map((item) => +item);
-
-    let newArr = [];
-    for (let j = 1; j < arr.length; j++) {
-        newArr.push(arr[j]);
-    }
-
-    const testCase = {
-        N: arr[0],
-        arr: newArr,
-    };
-    inputTestCase.push(testCase);
+const fs = require('fs');
+// const input = fs.readFileSync("/dev/stdin").toString().trim().split("\n");
+const input = fs.readFileSync(__dirname + "/input.txt").toString().trim().split("\n");
+const inputN = Number(input[0]);
+const inputArr = [];
+for (let i = 1; i < input.length; i++) {
+  inputArr.push(input[i].toString().trim().split(" ").map(v => Number(v)));
 }
 
-function solution(c, inputTestCase) {
-    let ret = 0;
+// 문제풀이
+// max(x+y) - min(x+y) 혹은
+// max(x-y) - min(x-y) 중에 답이 있으므로 이 값을 찾아서 최댓값을 구한다.
+function solution(inputN, inputArr) {
+    let ret = [];
+    
+    //x+y 배열
+    let sumVal= inputArr.map(inputArr => inputArr[0]+inputArr[1]);
+    //x-y 배열
+    let subVal = inputArr.map(inputArr => inputArr[0]-inputArr[1]);
 
-    console.log(ret);
+    ret.push(Math.max(...sumVal) - Math.min(...sumVal));
+    ret.push(Math.max(...subVal) - Math.min(...subVal));
+
+    console.log(Math.max(...ret));
 }
 
-solution(inputC, inputTestCase);
+//정답 출력
+solution(inputN, inputArr);

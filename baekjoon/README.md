@@ -49,4 +49,4 @@ const fs = require('fs');
 const [n, input] = fs.readFileSync("/dev/stdin").toString().trim().split("\n");
 ```
 
-## 로컬에서 테스트 & 백준에 제출 tip[https://wonyoung2257.tistory.com/36]
+## [로컬에서 테스트 & 백준에 제출 tip](https://wonyoung2257.tistory.com/36)

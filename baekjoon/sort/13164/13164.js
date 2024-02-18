@@ -16,3 +16,31 @@
 출력
 티셔츠 만드는 비용이 최소가 되도록 K개의 조로 나누었을 때, 티셔츠 만드는 비용을 출력한다.
 */
+
+const fs = require("fs");
+let input = fs.readFileSync(__dirname + "/input.txt").toString();
+// let input = fs.readFileSync("/dev/stdin").toString();
+input = input.split("\n");
+
+const inputC = +input[0];
+const inputTestCase = [];
+
+for (let i = 1; i <= inputC; ++i) {
+    const arr = input[i].split(" ").map((item) => +item);
+    let newArr = [];
+    for (let j = 1; j < arr.length; j++) {
+        newArr.push(arr[j]);
+    }
+    const testCase = {
+        N: arr[0],
+        arr: newArr,
+    };
+    inputTestCase.push(testCase);
+}
+
+function solution(c, inputTestCase) {
+    let ret = 0;
+    console.log(ret);
+}
+
+solution(inputC, inputTestCase);

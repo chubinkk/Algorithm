@@ -26,8 +26,11 @@ N(1 ≤ N ≤ 50,000)개의 점들이 있을 때, 최대 L1-metric 거리를 찾
 // const [n,input] = fs.readFileSync("/dev/stdin").toString.trim().split("\n");
 // const inputArr = input.trim().split(" ");
 
+
+// 입력 받기
 const fs = require("fs");
-let input = fs.readFileSync("./input.txt").toString();
+let input = fs.readFileSync(__dirname + "/input.txt").toString();
+// const [n,input] = fs.readFileSync("/dev/stdin").toString.trim().split("\n");
 input = input.split("\n");
 const inputC = +input[0];
 const inputTestCase = [];
@@ -47,3 +50,10 @@ for (let i = 1; i <= inputC; ++i) {
     inputTestCase.push(testCase);
 }
 
+function solution(c, inputTestCase) {
+    let ret = 0;
+
+    console.log(ret);
+}
+
+solution(inputC, inputTestCase);

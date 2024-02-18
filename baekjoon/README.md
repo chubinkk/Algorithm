@@ -50,3 +50,35 @@ const [n, input] = fs.readFileSync("/dev/stdin").toString().trim().split("\n");
 ```
 
 ## [로컬에서 테스트 & 백준에 제출 tip](https://wonyoung2257.tistory.com/36)
+
+### template
+
+```javascript
+const fs = require("fs");
+let input = fs.readFileSync(__dirname + "/input.txt").toString();
+// let input = fs.readFileSync("/dev/stdin").toString();
+input = input.split("\n");
+
+const inputC = +input[0];
+const inputTestCase = [];
+
+for (let i = 1; i <= inputC; ++i) {
+    const arr = input[i].split(" ").map((item) => +item);
+    let newArr = [];
+    for (let j = 1; j < arr.length; j++) {
+        newArr.push(arr[j]);
+    }
+    const testCase = {
+        N: arr[0],
+        arr: newArr,
+    };
+    inputTestCase.push(testCase);
+}
+
+function solution(c, inputTestCase) {
+    let ret = 0;
+    console.log(ret);
+}
+
+solution(inputC, inputTestCase);
+```

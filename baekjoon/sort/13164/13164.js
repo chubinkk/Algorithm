@@ -18,20 +18,44 @@
 */
 
 // 입력 받기
-const fs = require('fs');
+const fs = require("fs");
 // const input = fs.readFileSync("/dev/stdin").toString().trim().split("\n");
-const input = fs.readFileSync(__dirname + "/input.txt").toString().trim().split("\n");
+const input = fs
+  .readFileSync(__dirname + "/input.txt")
+  .toString()
+  .trim()
+  .split("\n");
+
 const inputN = Number(input[0].toString().split(" ")[0]);
 const inputK = Number(input[0].toString().split(" ")[1]);
 const inputArr = [];
+
 for (let i = 1; i < input.length; i++) {
-  inputArr.push(input[i].toString().trim().split(" ").map(v => Number(v)));
+  inputArr.push(
+    input[i]
+      .toString()
+      .trim()
+      .split(" ")
+      .map((v) => Number(v))
+  );
 }
 
 // 문제 풀이
 function solution(n, k, inputArr) {
-    let ret = 0;
-    console.log(ret);
+  let ret = 0;
+  let arr = inputArr.flat();
+  let diffVal = [];
+  let orderedDiff = [];
+
+  for (let i = 0; i < n - 1; i++) {
+    diffVal.push(arr[i + 1] - arr[i]);
+  }
+
+  orderedDiff = diffVal.sort((a, b) => a - b);
+  for (let j = 0; j < n - k; j++) {
+    ret += orderedDiff[j];
+  }
+  console.log(ret);
 }
 
-// solution(inputN, inputK, inputArr);
+solution(inputN, inputK, inputArr);

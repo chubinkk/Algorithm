@@ -45,13 +45,25 @@ Z19
 */
 
 function solution(arr) {
+  let sortedArr = [];
+  let index = 0;
 
-    return ;
+  sortedArr = arr.sort((a, b) => a.length - b.length);
+  index =
+    sortedArr.findIndex((element, index, arr) => {
+      return element.length === arr[index - 1]?.length;
+    }) - 1;
+
+  console.log("index? ", index);
+
+  return sortedArr;
 }
 
-let array = ['ABCD', '145C','A','A910','Z321'];
-let array1 = ['Z19', 'Z20'];
+let array = ["ABCD", "145C", "A", "A910", "Z321"];
+let array1 = ["Z19", "Z20"];
+let array2 = ["Z19", "Z20", "A999", "D1115"];
 
 //  출력
-// console.log(solution(array));
-// console.log(solution(array1));
+console.log(solution(array));
+console.log(solution(array2));
+console.log(solution(array2));

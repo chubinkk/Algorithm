@@ -46,17 +46,32 @@ for (let i = 1; i < input.length; i++) {
     );
   }
 
-  // 문제 풀이
+// 문제 풀이
 function solution(n, m, inputArr) {
-    let ret = 0;
-    let arr = inputArr.flat().sort((a,b) => a-b);
-    
-    let mid = arr[arr.length/2];
-
-    console.log(arr);
-    console.log(mid);
-
-    console.log(ret);
-  }
+  let arr = [];
+  arr = inputArr.flat().sort((a,b) => a-b);
   
-  solution(inputN, inputM, inputArr);
+  let left = arr[0];
+  let right = arr[n-1];
+
+  while (left <= right) {
+    let log = 0;
+    let mid = Math.floor((left+right)/2);
+
+    arr.forEach(element => {
+      if (mid <= element)
+        log += element - mid;
+    });
+
+    // if (log == m) return mid;
+    if (log >= m) {
+      left = mid +1;
+    }
+    else {
+      right = mid -1;
+    }
+  }
+  console.log(right);
+}
+  
+solution(inputN, inputM, inputArr);
